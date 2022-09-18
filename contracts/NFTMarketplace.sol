@@ -81,7 +81,7 @@ contract NFTMarketplace is ERC721URIStorage {
 
     }
 
-    //Create market item
+    //Put NFT to marketplace
     function createMarketItem(uint256 tokenId, uint256 price) private {
         require(price > 0, "price must be at least 1");
         require(msg.value == listingPrice, "Price must be equal to listingPrice");
@@ -101,7 +101,7 @@ contract NFTMarketplace is ERC721URIStorage {
 
     } 
 
-    //Resell NFT function
+    //Resell NFT 
     function resellToken(uint tokenId, uint256 price) public payable {
         //Check whether you can resell it
         require (idToMarketItem[tokenId].owner == msg.sender, "Only item owner can perform this function");
@@ -114,6 +114,21 @@ contract NFTMarketplace is ERC721URIStorage {
         
         _itemsSold.decrement();
         _transfer(msg.sender, address(this), tokenId);
+    }
+
+    function createMarketSale(uint256 tokenId) public payable{
+        uint price = idToMarketItem[tokenId].price;
+        require(msg.value == price, "Please submit the asking price in order to complete the purchase");
+
+        idToMarketItem[tokenId].owner = payable(msg.sender); //person buying item will be the owner
+        idToMarketItem[tokenId].sold = true; //NFT has been sold
+        idToMarketItem[tokenId].seller = payable(address(0)); //Seller was NFT marketplace - address 0 means it doesn't belong to any wallet
+
+        _itemsSold.increment();
+        _transfer(address(this), msg.sender, tokenId); //Transfer from NFT market place to the actual buyer
+        payable(owner).transfer(listingPrice); //Transfer fee marketplace owner
+        payable(idToMarketItem[tokenId].seller).transfer(msg.value); //transfer amount from buyer to seller
+
     }
 
 
