@@ -12,7 +12,6 @@ const MyApp = ({ Component, pageProps }) => (
         <Component {...pageProps} />
 
       </div>
-      
       <Footer />
 
     </div>
