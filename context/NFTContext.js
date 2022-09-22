@@ -77,8 +77,8 @@ export const NFTProvider = ({ children }) => {
     }
   };
 
-  // Function to list new NFT
-  const createSale = async (url, formInputPrice) => {
+  // Function to list or relist an NFT
+  const createSale = async (url, formInputPrice, isReselling, id) => {
     // setting up the contract
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
@@ -92,7 +92,8 @@ export const NFTProvider = ({ children }) => {
     const contract = fetchContract(signer);
     const listingPrice = await contract.getListingPrice();
 
-    const transaction = await contract.createToken(url, price, { value: listingPrice.toString() });
+    const transaction = !isReselling ? await contract.createToken(url, price, { value: listingPrice.toString() }) : await
+    contract.resellToken(id, price, { value: listingPrice.toString() });
     await transaction.wait();
   };
 
@@ -206,7 +207,7 @@ export const NFTProvider = ({ children }) => {
 
   return (
     <NFTContext.Provider
-      value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS, createNFT, fetchNFTs, fetchMyNFTsOrListedNfTs, buyNFT }}
+      value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS, createNFT, fetchNFTs, fetchMyNFTsOrListedNfTs, buyNFT, createSale }}
     >
       {children}
     </NFTContext.Provider>
