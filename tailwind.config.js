@@ -16,7 +16,7 @@ module.exports = {
         'nft-black-2': '#1B1A21',
         'nft-black-3': '#2A2D3A',
         'nft-black-4': '#24252D',
-        'nft-red-violet': '#DA18A3',
+        'nft-green': '#3EC81C',
         'file-active': '#2196f3',
         'file-accept': '#00e676',
         'file-reject': '#ff1744',

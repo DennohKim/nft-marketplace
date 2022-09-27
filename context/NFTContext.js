@@ -206,10 +206,12 @@ export const NFTProvider = ({ children }) => {
   };
 
   return (
+
     <NFTContext.Provider
       value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS, createNFT, fetchNFTs, fetchMyNFTsOrListedNfTs, buyNFT, createSale }}
     >
       {children}
     </NFTContext.Provider>
+
   );
 };

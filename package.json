@@ -9,8 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@celo-tools/use-contractkit": "^3.1.0",
+    "@celo/contractkit": "^2.1.0",
+    "@celo/react-celo": "^4.1.0",
     "@openzeppelin/contracts": "4.5.0",
     "axios": "0.26.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.2",
     "ipfs-http-client": "56.0.1",
     "next": "12.1.0",
     "next-themes": "0.1.1",
