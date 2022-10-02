@@ -22,7 +22,7 @@ const Footer = () => {
       <div className="w-full minmd:w-4/5 flex flex-row md:flex-col sm:px-4 px-16">
         <div className="flexStart flex-1 flex-col">
           <div className="flexCenter cursor-pointer ">
-            <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" />
+            {/* <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" /> */}
             <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1">Naftter</p>
           </div>
           <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-base mt-6 ">Get the latest updates</p>

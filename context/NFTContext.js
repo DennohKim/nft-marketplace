@@ -32,7 +32,7 @@ export const NFTContext = React.createContext();
 export const NFTProvider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState('');
 
-  const nftCurrency = 'ETH';
+  const nftCurrency = 'CELO';
 
   // Check if connected function
 
@@ -119,11 +119,12 @@ export const NFTProvider = ({ children }) => {
   };
 
   const fetchNFTs = async () => {
-    const provider = new ethers.providers.JsonRpcProvider();
+    const provider = new ethers.providers.JsonRpcProvider("https://alfajores-forno.celo-testnet.org");
     const contract = fetchContract(provider);
 
     // Getting array of promises containing our NFT data
     const data = await contract.fetchMarketItems();
+    console.log(data);
 
     // Fetch all NFT's simultaneously
     const items = await Promise.all(data.map(async ({ tokenId, seller, owner, price: unformattedPrice }) => {

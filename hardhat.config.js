@@ -27,3 +27,6 @@ module.exports = {
     },
   },
 };
+
+// Contract address: 0x7940F302b435477bBd82d3Eb62c94bEA530174af
+// 0x5c86367E587d51026624B16ce156e4e3f8bC4160
