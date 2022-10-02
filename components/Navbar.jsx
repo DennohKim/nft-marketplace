@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import{ NFTContext } from '../context/NFTContext';
+import { NFTContext } from '../context/NFTContext';
 import images from '../assets';
 import { Button } from '.';
 
 const MenuItems = ({ isMobile, active, setActive }) => {
-
   const generateLink = (index) => {
     switch (index) {
       case 0: return '/';

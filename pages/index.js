@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useContext } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Banner, NFTCard } from '../components';
-import images from '../assets';
-import { makeId } from '../utils/makeId';
+// import images from '../assets';
+// import { makeId } from '../utils/makeId';
 import { NFTContext } from '../context/NFTContext';
 
 const Home = () => {
@@ -21,17 +21,17 @@ const Home = () => {
     });
   }, []);
 
-  const handleScroll = (direction) => {
-    const { current } = scrollRef;
+  // const handleScroll = (direction) => {
+  //   const { current } = scrollRef;
 
-    const scrollAmount = window.innerWidth > 1800 ? 270 : 210;
+  //   const scrollAmount = window.innerWidth > 1800 ? 270 : 210;
 
-    if (direction === 'left') {
-      current.scrollLeft -= scrollAmount;
-    } else {
-      current.scrollLeft += scrollAmount;
-    }
-  };
+  //   if (direction === 'left') {
+  //     current.scrollLeft -= scrollAmount;
+  //   } else {
+  //     current.scrollLeft += scrollAmount;
+  //   }
+  // };
 
   const isScrollable = () => {
     const { current } = scrollRef;
