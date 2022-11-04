@@ -6,10 +6,10 @@ import { create as ipfsHttpClient } from 'ipfs-http-client';
 
 import { MarketAddress, MarketAddressABI } from './constants';
 
-// Connect to infura gateway
+// Connect to infura dedicated gateway
 
-const projectId = process.env.NEXT_PUBLIC_IPFS_PROJECT_ID;
-const projectSecret = process.env.NEXT_PUBLIC_IPFS_PROJECT_SECRET;
+const projectId = '2EyNvW24RJovJZofq75ofTHgX5j';
+const projectSecret = 'd93d3b73c279215ed369e8df404e2d97';
 const auth = `Basic ${Buffer.from(`${projectId}:${projectSecret}`).toString(
   'base64',
 )}`;
@@ -20,7 +20,7 @@ const options = {
   headers: { authorization: auth },
 };
 const client = ipfsHttpClient(options);
-const dedicatedEndPoint = process.env.NEXT_PUBLIC_IPFS_DEDICATED_ENDPOINT;
+const dedicatedEndPoint = 'https://chizaanfts.infura-ipfs.io';
 
 // ----------------------------------------------------------------------------------------
 
