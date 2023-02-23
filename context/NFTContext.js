@@ -20,7 +20,7 @@ const options = {
   headers: { authorization: auth },
 };
 const client = ipfsHttpClient(options);
-const dedicatedEndPoint = 'https://chizaanfts.infura-ipfs.io/ipfs';
+const dedicatedEndPoint = 'https://chizaanfts.infura-ipfs.io';
 
 // ----------------------------------------------------------------------------------------
 
